@@ -16,5 +16,5 @@ for i in range(0,28):
 		contador+=1
 im.show()
 '''
-for i in y_train:
-	print(i)
+print(len(X_train))
+print(len(X_test))
