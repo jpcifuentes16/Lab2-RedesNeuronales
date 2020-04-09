@@ -3,6 +3,18 @@ import mnist_reader
 from fns_redes_neuronales import *
 import pickle
 import pandas as pd
+import matplotlib.pyplot as plt
+
+
+def MalosGraph(real,prediccion):
+	prediccionMal=[0,0,0,0,0,0,0,0,0,0]
+
+	for i in range(len(real)):
+		if(not(real[i]==prediccion[i])):
+			prediccionMal[int(real[i])]+=1
+
+	plt.bar(range(len(prediccionMal)), prediccionMal)
+	plt.show()
 
 def ConfusionMatrix(real,prediccion):
 	actual=[
@@ -87,3 +99,5 @@ def Test(factNormalizar,neuronasOcultas,nombreModelo):
 
 y,prediccion=Test(1000,533,'modeloFinal2')
 ConfusionMatrix(y,prediccion)
+
+MalosGraph(y,prediccion)
