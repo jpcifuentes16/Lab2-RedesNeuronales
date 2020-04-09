@@ -1,0 +1,7 @@
+Lectura de datos...
+flat_thetas
+[ 0.01221784  0.00521727  0.0018337  ... -0.01476291 -0.04323592
+ -0.02707599]
+Correctas 997
+Incorrectos 9003
+Exactitud 9.97

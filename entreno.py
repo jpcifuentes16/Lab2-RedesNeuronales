@@ -11,7 +11,7 @@ import pickle
 Factor por el que se divide para
 que no baje tan rapido la sigmoide
 '''
-NORMALIZAR=10000.0
+NORMALIZAR=1000.0
 
 #Cantidad de neuronas en la
 #Capa oculta
@@ -53,7 +53,7 @@ theta_shapes=np.array([
 
 #Thetas iniciales
 flat_thetas=flatten_list_of_arrays([
-	np.random.rand(*theta_shape)
+	np.random.rand(*theta_shape)/100
 	for theta_shape in theta_shapes
 	])
 
@@ -98,12 +98,6 @@ Y=(y==np.array(range(10))).astype(int)
 theta_shapes=np.array([
 	[NEURONAS_OCULTAS,n+1],
 	[NEURONAS_SALIDA,NEURONAS_OCULTAS+1]
-	])
-
-#Thetas iniciales
-flat_thetas=flatten_list_of_arrays([
-	np.random.rand(*theta_shape)
-	for theta_shape in theta_shapes
 	])
 
 
