@@ -1,7 +1,7 @@
 from scipy.optimize import minimize
 import numpy as np
 import mnist_reader
-from fns_redes_neuronales import *
+from redNeuronal import *
 import pickle
 
 

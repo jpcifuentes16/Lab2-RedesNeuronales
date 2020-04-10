@@ -1,6 +1,6 @@
 import numpy as np
 import mnist_reader
-from fns_redes_neuronales import *
+from redNeuronal import *
 import pickle
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -97,7 +97,9 @@ def Test(factNormalizar,neuronasOcultas,nombreModelo):
 
 	return y,prediccion
 
+'''
 y,prediccion=Test(1000,533,'modeloFinal2')
 ConfusionMatrix(y,prediccion)
 
 MalosGraph(y,prediccion)
+'''
