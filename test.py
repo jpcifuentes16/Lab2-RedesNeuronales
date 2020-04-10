@@ -6,12 +6,15 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-def MalosGraph(real,prediccion):
+def MalosGraph(real,prediccion,control=None):
 	prediccionMal=[0,0,0,0,0,0,0,0,0,0]
 
 	for i in range(len(real)):
 		if(not(real[i]==prediccion[i])):
 			prediccionMal[int(real[i])]+=1
+
+	if(control):
+		return prediccionMal
 
 	plt.bar(range(len(prediccionMal)), prediccionMal)
 	plt.show()
@@ -90,16 +93,29 @@ def Test(factNormalizar,neuronasOcultas,nombreModelo):
 
 	correctos=((prediccion==y)*1).sum()
 	incorrectos=len(y)-correctos
-
+	print(nombreModelo)
 	print("Correctas "+str(correctos))
 	print("Incorrectos "+str(incorrectos))
 	print("Exactitud "+str(correctos*100/float(len(y))))
+	print()
 
 	return y,prediccion
 
-'''
-y,prediccion=Test(1000,533,'modeloFinal2')
-ConfusionMatrix(y,prediccion)
 
-MalosGraph(y,prediccion)
-'''
+def comparacionGraph():
+	y,prediccion=Test(10000,130,'modeloFinal1')
+
+	y2,prediccion2=Test(1000,533,'modeloFinal2')
+
+	prediccionMal=MalosGraph(y,prediccion,True)
+
+	prediccionMal2=MalosGraph(y2,prediccion2,True)
+
+	x = np.arange(len(prediccionMal))  # the label locations
+	width = 0.35  # the width of the bars
+
+	plt.bar(x - width/2, prediccionMal, width, label='Modelo 1')
+	plt.bar(x + width/2, prediccionMal2, width, label='Modelo 2')
+	plt.legend()
+	plt.show()
+
